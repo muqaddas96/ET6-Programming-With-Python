@@ -37,7 +37,8 @@ def find_longest(items: list) -> str:
     assert isinstance(items, list), "input must be a list"
     if not items:
         raise ValueError("list cannot be empty")
-        
+    if not all(isinstance(item, str) for item in items):
+        raise AssertionError("All elements in the list must be strings")
     longest = items[0]
     for item in items:
         if len(item) > len(longest):
