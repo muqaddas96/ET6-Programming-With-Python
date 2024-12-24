@@ -33,6 +33,9 @@ def reverse_words(text: str) -> str:
     result = ""
     
     for word in words:
-        result = " " + word + result
-        
+        if result:  # Add a space only if result is not empty
+            result = word + " " + result
+        else:  # For the first word, just add it without a space
+            result = word
+
     return result
